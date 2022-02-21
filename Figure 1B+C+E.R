@@ -57,11 +57,12 @@ fig.1B <- ggplot(filter(SV, Cell %in% c("QR", "QR.p", "QR.pa", "QR.pp")) , aes(x
 fig.1B
 
 
-fig.1C <- ggplot(filter(AID_DAPI, Cell == "QR.p*" | Cell == 'seam' ), aes(x = Cell,y = Ratio))+
+fig.1C <- ggplot(AID_DAPI, aes(x = Cell,y = Ratio))+
   xlab(label = "")+
   ylab("DNA content")+
   geom_boxplot(colour = "black", fill = "Gray80", size = 0.3)+
   geom_jitter(colour = "black", width = 0.06, height = 0, size = 0.1)+
+  stat_boxplot(geom = 'errorbar')+
   scale_y_continuous(limits = c(0.5,4),labels = c("","2n", "4n", "", "8n"))+
   migtheme
 fig.1C
@@ -81,5 +82,5 @@ fig.1E
 #test if DNA content AID QR.p is less than 8n
 t.test(filter(AID_DAPI, Cell == "QR.p*")$Ratio, mu = 4, alternative = "less") # p = 2.2e-16, yes
 #test if DNA contentAID QR.p is greater than 4n
-t.test(filter(AID_DAPI, Cell == "QR.p*")$Ratio, mu = 2, alternative = "greater") # p= 0.696, no
+t.test(filter(AID_DAPI, Cell == "QR.p*")$Ratio, mu = 2, alternative = "greater") # p= 0.3108, no
 
