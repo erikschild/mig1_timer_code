@@ -19,6 +19,6 @@ To compute statistics for Fig 5B:
 
 R code:
 
-To plot figure 1B+C+E, 2B+C, 3C, 4A+B+C+D, 5A+B+S1C, S1, S2A+B, and calculate corresponding statistics:
+To plot figure 1B+C+E, 2B+C, 3C, 4A+B+C+D, 5A+5sup1, S1, 2sup2+3sup2, and calculate corresponding statistics:
 - Run corresponding .R file
 - for Figure 2B+C.R and Figure 3C.R, note that the greek uppercase delta symbol may not properly show in the code, depending on encoding. UTF-8 encoding allows for greek letters
