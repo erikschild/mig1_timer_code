@@ -62,14 +62,6 @@ fig.5A <- ggplot(filter(all_bar1, Cell %in% c("QR.p", "QR.pa")) , aes(x = Positi
   migtheme
 fig.5A
 
-fig.5B <- ggplot(variances, aes(x = name, y = value))+
-  geom_col(fill = "Gray80", color = "Gray80")+
-  scale_y_continuous(limits = c(0,0.45))+
-  ylab("Variance")+
-  xlab("")+
-  migtheme
-fig.5B
-
 fig.5sup1 <- ggplot(filter(all_bar1, Cell == "QR.pa") , aes(x = label, y = smFISH.Counts))+
   xlab(label = "")+
   ylab("# mRNA spots")+
