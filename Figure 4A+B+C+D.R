@@ -1,13 +1,13 @@
 #load necessary packages
-#install_div_mutants.packages("tibble")
+#install.packages("tibble")
 library(tibble)
-#install_div_mutants.packages("magrittr")
+#install.packages("magrittr")
 library(magrittr)
-#install_div_mutants.packages("ggplot2")
+#install.packages("ggplot2")
 library(ggplot2)
-#install_div_mutants.packages("readxl")
+#install.packages("readxl")
 library(readxl)
-#install_div_mutants.packages("dplyr")
+#install.packages("dplyr")
 library(dplyr)
 
 #set ggplot figure theme
@@ -45,11 +45,11 @@ SV1009
 nuclear_size <- read_xlsx("nuclear_size.xlsx")
 
 
-all_div_mutants <- bind_rows(pig, ced, SV1009)
+all <- bind_rows(pig, ced, SV1009)
 
-all_div_mutants$label <- factor(all_div_mutants$label, levels =  c("Control", "ced-3(n717)", "pig-1(gm344)"))
+all$label <- factor(all$label, levels =  c("Control", "ced-3(n717)", "pig-1(gm344)"))
 
-fig.4A <- ggplot(filter(all_div_mutants, Cell %in% c("QR.p", "QR.pa", "QR.pp")) , aes(x = Position, y = smFISH.Counts, colour = Cell))+
+fig.4A <- ggplot(filter(all, Cell %in% c("QR.p", "QR.pa", "QR.pp")) , aes(x = Position, y = smFISH.Counts, colour = Cell))+
   geom_point(size = 2)+
   scale_x_continuous(labels = c("H2","V1", "V2", "V3", "V4", "V5"), limits = c(-1,4))+
   scale_y_continuous(limits = c(0,45))+
@@ -61,7 +61,7 @@ fig.4A <- ggplot(filter(all_div_mutants, Cell %in% c("QR.p", "QR.pa", "QR.pp")) 
 fig.4A
 
 
-fig.4B <- ggplot(filter(all_div_mutants, Cell =="QR.pa" & Ratio != 0) , aes(y = Ratio, x = label))+
+fig.4B <- ggplot(filter(all, Cell =="QR.pa" & Ratio != 0) , aes(y = Ratio, x = label))+
   xlab(label = "")+
   ylab("QR.pa : QR.pp size ratio")+
   geom_boxplot(colour = "black", fill = "Gray80", size = 0.3)+

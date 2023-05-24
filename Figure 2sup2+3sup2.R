@@ -1,13 +1,13 @@
 #load necessary packages
-#install_div_mutants.packages("tibble")
+#install.packages("tibble")
 library(tibble)
-#install_div_mutants.packages("magrittr")
+#install.packages("magrittr")
 library(magrittr)
-#install_div_mutants.packages("ggplot2")
+#install.packages("ggplot2")
 library(ggplot2)
-#install_div_mutants.packages("readxl")
+#install.packages("readxl")
 library(readxl)
-#install_div_mutants.packages("dplyr")
+#install.packages("dplyr")
 library(dplyr)
 
 #set ggplot figure theme
@@ -54,21 +54,21 @@ all_QR.pap <- bind_rows(SV1009, KN1500, KN3133, KN3134, KN3071, KN3078, KN3222)
 all_QR.pap$Condition <- factor(all_QR.pap$Condition, levels = rev(c("Control", "mig-1ΔIntron 1", "mig-1ΔIntron 2",  "mig-1ΔPromoter 1", "mig-1ΔPromoter 2", "mig-1ΔPromoter 1-2", "mig-1 loss-of-function")))
 
 #Create figure panels
-fig.S1A <- ggplot(filter(all_QR.pap, Condition %in% c("Control", "mig-1ΔIntron 1", "mig-1ΔIntron 2", "mig-1 loss-of-function") & Cell == "QR.pap"), aes(x = Condition, y = Position))+
+fig.2sup2 <- ggplot(filter(all_QR.pap, Condition %in% c("Control", "mig-1ΔIntron 1", "mig-1ΔIntron 2", "mig-1 loss-of-function") & Cell == "QR.pap"), aes(x = Condition, y = Position))+
   geom_boxplot(colour = "gray10", fill = "gray50")+
   geom_jitter(colour = "magenta", width = 0.1, height = 0, size = 1, alpha = 0.6)+
   scale_y_continuous(limits = c(0.5,2),breaks = c(0,1,2), labels = c("H2", "V1.p", "V2.p"),name = "final position QR.pap on AP axis")+
   coord_flip()+
   migtheme
-fig.S1A
+fig.2sup2
 
-fig.S1B <- ggplot(filter(all_QR.pap, Condition %in% c("Control", "mig-1ΔPromoter 1", "mig-1ΔPromoter 2",  "mig-1ΔPromoter 1-2", "mig-1 loss-of-function") & Cell == "QR.pap"), aes(x = Condition, y = Position))+
+fig.3sup2 <- ggplot(filter(all_QR.pap, Condition %in% c("Control", "mig-1ΔPromoter 1", "mig-1ΔPromoter 2",  "mig-1ΔPromoter 1-2", "mig-1 loss-of-function") & Cell == "QR.pap"), aes(x = Condition, y = Position))+
   geom_boxplot(colour = "gray10", fill = "gray50")+
   geom_jitter(colour = "magenta", width = 0.1, height = 0, size = 1, alpha = 0.6)+
   scale_y_continuous(limits = c(0.5,2),breaks = c(0,1,2), labels = c("H2", "V1.p", "V2.p"), name = "final position QR.pap on AP axis")+
   coord_flip()+
   migtheme
-fig.S1B
+fig.2sup2
 
 #statistical testing
 #final position QR.pap of:

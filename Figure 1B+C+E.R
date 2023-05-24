@@ -1,13 +1,13 @@
 #load necessary packages
-#install_div_mutants.packages("tibble")
+#install.packages("tibble")
 library(tibble)
-#install_div_mutants.packages("magrittr")
+#install.packages("magrittr")
 library(magrittr)
-#install_div_mutants.packages("ggplot2")
+#install.packages("ggplot2")
 library(ggplot2)
-#install_div_mutants.packages("readxl")
+#install.packages("readxl")
 library(readxl)
-#install_div_mutants.packages("dplyr")
+#install.packages("dplyr")
 library(dplyr)
 #set ggplot figure theme
 migtheme <-   theme(axis.line = element_blank(),

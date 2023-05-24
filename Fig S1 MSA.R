@@ -1,7 +1,15 @@
-source("E:/OneDrive - Hubrecht Institute//Work/Functions/all_functional_functions.R")
-
-
-meme_intron <- readRDS("E:/OneDrive - Hubrecht Institute/Work/mig-1_paper/figures/github version figure code/MEME_intron.RDS")
+#load necessary packages
+#install.packages("tibble")
+library(tibble)
+#install.packages("magrittr")
+library(magrittr)
+#install.packages("ggplot2")
+library(ggplot2)
+#install.packages("readxl")
+library(readxl)
+#install.packages("dplyr")
+library(dplyr)
+meme_intron <- readRDS("MEME_intron.RDS")
 
 #strsplit(meme_intron$Column2, split = "")%>%unlist%>%enframe%>%view
 intron_msa <- list()
@@ -18,9 +26,10 @@ intron_msa[[i]] <- ggplot(meme_intron[[i]], aes(x = position, y = Column1, color
 }
 #intron_msa[[1]]
 
+intron_msa[[1]]
 
-meme_promoter <- write_rds("E:/OneDrive - Hubrecht Institute/Work/mig-1_paper/figures/github version figure code/MEME_promoter.RDS")
 
+meme_promoter <- readRDS("MEME_promoter.RDS")
 
 promoter_msa <- list()
 for(i in 1:4){

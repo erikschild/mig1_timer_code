@@ -70,14 +70,14 @@ fig.5B <- ggplot(variances, aes(x = name, y = value))+
   migtheme
 fig.5B
 
-fig.S1C <- ggplot(filter(all_bar1, Cell == "QR.pa") , aes(x = label, y = smFISH.Counts))+
+fig.5sup1 <- ggplot(filter(all_bar1, Cell == "QR.pa") , aes(x = label, y = smFISH.Counts))+
   xlab(label = "")+
   ylab("# mRNA spots")+
   geom_boxplot(colour = "black", fill = "Gray80", size = 0.3)+
   stat_boxplot(geom = 'errorbar')+
   geom_jitter(colour = "black", width = 0.06, height = 0, size = 0.1)+
   migtheme
-fig.S1C
+fig.5sup1
 
 #statistical testing
 # mig-1 expression level in QR of:
@@ -85,3 +85,4 @@ fig.S1C
 t.test(filter(KN2651, Cell == "QR.pa")$smFISH.Counts,filter(SV1009, Cell == "QR.pa")$smFISH.Counts)#p = 0.8176
 #bar-1 loss-of-function
 t.test(filter(KN1739, Cell == "QR.pa")$smFISH.Counts,filter(SV1009,Cell == "QR.pa")$smFISH.Counts)#p = 0.01789
+
